@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth"> 
-<link rel="icon" type="image/png" href="icon.png">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CoconutSMP | The Ultimate White & Orange Anarchy Experience</title>
+    
+    <!-- Tab Icon / Favicon using icon.png as specified -->
+    <link rel="icon" href="icon.png" type="image/png">
+    <link rel="shortcut icon" href="icon.png" type="image/png">
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts: Inter & Press Start 2P for gaming feel -->
@@ -100,7 +104,8 @@
     <!-- NAVIGATION BAR -->
     <nav class="fixed top-0 left-0 w-full z-50 glass-panel border-b border-coco-accent/20 py-4 px-6 md:px-12 flex justify-between items-center transition-all duration-300" id="main-nav">
         <a href="#" class="flex items-center space-x-3 group">
-            <span class="text-2xl md:text-3xl animate-float">🥥</span>
+            <!-- Customized Logo Image inside Navbar using coconut.png -->
+            <img src="coconut.png" alt="CoconutSMP Logo" class="w-8 h-8 md:w-10 md:h-10 object-contain rounded-lg animate-float border border-coco-accent/30 shadow-md bg-coco-accent/10" onerror="this.onerror=null; this.src='https://img.icons8.com/emoji/48/coconut.png';">
             <div class="flex flex-col">
                 <span class="font-gaming text-xs md:text-sm tracking-widest text-coco-accent font-bold group-hover:text-white transition-colors">COCONUT</span>
                 <span class="text-[9px] font-gaming text-white tracking-wider">SMP ANARCHY</span>
@@ -384,7 +389,8 @@
     <section class="py-24 px-6 relative overflow-hidden bg-gradient-to-b from-black to-coco-dark border-t border-white/10">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,102,0,0.08),transparent_60%)] pointer-events-none"></div>
         <div class="max-w-4xl mx-auto text-center space-y-8 relative z-10">
-            <div class="inline-flex text-4xl animate-bounce">💬</div>
+            <!-- Animated Custom Brand Icon over the CTA using coconut.png -->
+            <img src="coconut.png" alt="CoconutSMP Icon" class="w-16 h-16 mx-auto animate-bounce object-contain rounded-xl shadow-lg border-2 border-coco-accent/50 bg-black/50" onerror="this.onerror=null; this.src='https://img.icons8.com/emoji/48/coconut.png';">
             <h2 class="text-4xl md:text-6xl font-extrabold text-white">READY TO JOIN THE <span class="text-coco-accent">ANARCHY</span>?</h2>
             <p class="text-gray-300 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
                 Coordinate clans, claim bounties, share dynamic coordinate maps, and communicate directly with staff. Our active discord is available 24/7.
@@ -405,7 +411,8 @@
     <footer class="bg-black border-t border-white/10 py-12 px-6">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="flex items-center space-x-3">
-                <span class="text-2xl">🥥</span>
+                <!-- Customized Logo Image inside Footer using coconut.png -->
+                <img src="coconut.png" alt="CoconutSMP Logo" class="w-8 h-8 object-contain rounded-md border border-white/20" onerror="this.onerror=null; this.src='https://img.icons8.com/emoji/48/coconut.png';">
                 <span class="font-gaming text-xs text-coco-accent tracking-widest">COCONUTSMP</span>
             </div>
             <p class="text-xs text-gray-500 text-center md:text-right">
@@ -623,6 +630,7 @@
             });
         }
 
+        // Form post handler
         function postToWall() {
             const nameInput = document.getElementById('graffiti-name');
             const msgInput = document.getElementById('graffiti-msg');
