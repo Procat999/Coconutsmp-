@@ -6,8 +6,8 @@
     <title>CoconutSMP | The Ultimate White & Orange Anarchy Experience</title>
     
     <!-- Tab Icon / Favicon using icon.png as specified -->
-    <link rel="icon" href="icon.png" type="image/png">
-    <link rel="shortcut icon" href="icon.png" type="image/png">
+    <link class="favicon" rel="icon" href="icon.png" type="image/png">
+    <link class="shortcut icon" href="icon.png" type="image/png">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,6 +17,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script>
     
     <script>
         tailwind.config = {
@@ -29,10 +31,10 @@
                     colors: {
                         coco: {
                             light: '#FFFFFF',
-                            sandy: '#FFA500',
+                            sandy: '#FFA500', // Restored vibrant sandy orange
                             brown: '#262626',
                             dark: '#0D0D0D',
-                            accent: '#FF6600',
+                            accent: '#FF6600', // Restored main dark vibrant orange
                             gray: '#8C8C8C',
                         }
                     },
@@ -63,25 +65,25 @@
         body {
             background-color: #050505;
             background-image: 
-                radial-gradient(circle at 10% 20%, rgba(255, 102, 0, 0.1) 0%, transparent 45%),
+                radial-gradient(circle at 10% 20%, rgba(255, 102, 0, 0.12) 0%, transparent 45%),
                 radial-gradient(circle at 90% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 45%),
                 url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0h20v20H0V0zm20 20h20v20H20V20z' fill='%23262626' fill-opacity='0.15' fill-rule='evenodd'/%3E%3C/svg%3E");
             font-family: 'Inter', sans-serif;
             color: #FFFFFF;
         }
         .glow-text-orange {
-            text-shadow: 0 0 15px rgba(255, 102, 0, 0.7);
+            text-shadow: 0 0 15px rgba(255, 102, 0, 0.75);
         }
         .glow-text-white {
             text-shadow: 0 0 15px rgba(255, 255, 255, 0.5);
         }
         .glass-panel {
-            background: rgba(13, 13, 13, 0.8);
+            background: rgba(13, 13, 13, 0.85);
             backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 102, 0, 0.15);
+            border: 1px solid rgba(255, 102, 0, 0.18);
         }
         .glass-panel:hover {
-            border-color: rgba(255, 102, 0, 0.4);
+            border-color: rgba(255, 102, 0, 0.45);
         }
         /* Custom scrollbar */
         ::-webkit-scrollbar {
@@ -104,8 +106,8 @@
     <!-- NAVIGATION BAR -->
     <nav class="fixed top-0 left-0 w-full z-50 glass-panel border-b border-coco-accent/20 py-4 px-6 md:px-12 flex justify-between items-center transition-all duration-300" id="main-nav">
         <a href="#" class="flex items-center space-x-3 group">
-            <!-- Customized Logo Image inside Navbar using coconut.png -->
-            <img src="coconut.png" alt="CoconutSMP Logo" class="w-8 h-8 md:w-10 md:h-10 object-contain rounded-lg animate-float border border-coco-accent/30 shadow-md bg-coco-accent/10" onerror="this.onerror=null; this.src='https://img.icons8.com/emoji/48/coconut.png';">
+            <!-- Customized Logo Image inside Navbar with Bright White Background and Dark Orange Glow -->
+            <img src="coconut.png" alt="CoconutSMP Logo" class="w-8 h-8 md:w-10 md:h-10 p-0.5 object-contain rounded-lg animate-float border border-white shadow-[0_0_15px_rgba(255,102,0,0.65)] bg-white" onerror="this.onerror=null; this.src='https://img.icons8.com/emoji/48/coconut.png';">
             <div class="flex flex-col">
                 <span class="font-gaming text-xs md:text-sm tracking-widest text-coco-accent font-bold group-hover:text-white transition-colors">COCONUT</span>
                 <span class="text-[9px] font-gaming text-white tracking-wider">SMP ANARCHY</span>
@@ -115,7 +117,7 @@
         <!-- Desktop Navigation Items -->
         <div class="hidden md:flex items-center space-x-8 font-semibold text-sm">
             <a href="#about" class="hover:text-coco-accent transition-colors duration-200 flex items-center gap-1"><i class="fa-solid fa-compass text-white"></i> About</a>
-            <a href="#crossplay" class="hover:text-coco-accent transition-colors duration-200 flex items-center gap-1"><i class="fa-solid fa-circle-nodes text-coco-accent"></i> Crossplay</a>
+            <a href="#status-panel" class="hover:text-coco-accent transition-colors duration-200 flex items-center gap-1"><i class="fa-solid fa-server text-coco-accent"></i> Status</a>
             <a href="#rules" class="hover:text-coco-accent transition-colors duration-200 flex items-center gap-1"><i class="fa-solid fa-gavel text-coco-accent"></i> Rules</a>
             <a href="#wall" class="hover:text-coco-accent transition-colors duration-200 flex items-center gap-1"><i class="fa-solid fa-pen-nib"></i> Anarchy Wall</a>
         </div>
@@ -124,7 +126,7 @@
             <a href="https://discord.gg/KpAnJgxYqB" target="_blank" class="bg-[#5865F2] hover:bg-[#4752C4] text-white px-4 py-2 rounded-lg flex items-center gap-2 font-bold text-xs md:text-sm shadow-lg transition-transform hover:-translate-y-0.5 active:translate-y-0">
                 <i class="fa-brands fa-discord"></i> <span class="hidden sm:inline">Join Discord</span>
             </a>
-            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none p-2">
+            <button id="mobile-menu-btn" class="md:hidden text-white focus:outline-none p-2" aria-label="Open Menu">
                 <i class="fa-solid fa-bars text-xl"></i>
             </button>
         </div>
@@ -132,11 +134,11 @@
 
     <!-- Mobile Navigation Drawer -->
     <div id="mobile-menu" class="fixed inset-y-0 right-0 w-64 bg-coco-dark/95 border-l border-coco-accent/30 transform translate-x-full transition-transform duration-300 z-50 p-6 flex flex-col space-y-6 pt-24 shadow-2xl backdrop-blur-md">
-        <button id="mobile-close-btn" class="absolute top-6 right-6 text-white text-2xl focus:outline-none">
+        <button id="mobile-close-btn" class="absolute top-6 right-6 text-white text-2xl focus:outline-none" aria-label="Close Menu">
             <i class="fa-solid fa-xmark"></i>
         </button>
         <a href="#about" class="text-lg hover:text-coco-accent font-medium flex items-center gap-3 py-2 border-b border-coco-brown/20"><i class="fa-solid fa-compass text-white"></i> About</a>
-        <a href="#crossplay" class="text-lg hover:text-coco-accent font-medium flex items-center gap-3 py-2 border-b border-coco-brown/20"><i class="fa-solid fa-circle-nodes text-coco-accent"></i> Crossplay</a>
+        <a href="#status-panel" class="text-lg hover:text-coco-accent font-medium flex items-center gap-3 py-2 border-b border-coco-brown/20"><i class="fa-solid fa-server text-coco-accent"></i> Status</a>
         <a href="#rules" class="text-lg hover:text-coco-accent font-medium flex items-center gap-3 py-2 border-b border-coco-brown/20"><i class="fa-solid fa-gavel text-coco-accent"></i> Rules</a>
         <a href="#wall" class="text-lg hover:text-coco-accent font-medium flex items-center gap-3 py-2"><i class="fa-solid fa-pen-nib"></i> Anarchy Wall</a>
     </div>
@@ -174,7 +176,7 @@
                         <i class="fa-solid fa-copy"></i> Copy Address
                     </button>
                 </div>
-                <div class="flex items-center gap-3 border-t border-white/10 pt-3 text-xs text-gray-400 font-mono">
+                <div class="flex flex-wrap items-center gap-3 border-t border-white/10 pt-3 text-xs text-gray-400 font-mono">
                     <span class="bg-coco-accent/20 text-coco-accent px-2 py-1 rounded font-bold">BEDROCK PORT: 33466</span>
                     <span>•</span>
                     <span>JAVA PORT: Default</span>
@@ -191,7 +193,7 @@
             </div>
         </div>
 
-        <!-- Live Connection Panel -->
+        <!-- Terminal Console Container -->
         <div class="w-full lg:w-1/2 max-w-lg">
             <div class="glass-panel rounded-3xl p-6 relative overflow-hidden border border-coco-accent/20 shadow-2xl">
                 <!-- Scanline retro overlay -->
@@ -200,9 +202,9 @@
                 <div class="flex justify-between items-center mb-6">
                     <div class="flex items-center space-x-2">
                         <span class="inline-block w-3 h-3 bg-coco-accent rounded-full animate-pulse"></span>
-                        <span class="font-gaming text-xs tracking-widest text-white">COCONUT ANARCHY TERMINAL</span>
+                        <span class="font-gaming text-[9px] sm:text-xs tracking-widest text-white">COCONUT ANARCHY CHAT</span>
                     </div>
-                    <span class="text-xs bg-coco-brown border border-coco-accent/20 rounded px-2.5 py-1 text-coco-accent font-mono font-bold">W-SERVER</span>
+                    <span class="text-[9px] bg-coco-brown border border-coco-accent/20 rounded px-2.5 py-1 text-coco-accent font-mono font-bold">W-SERVER</span>
                 </div>
 
                 <div class="space-y-4">
@@ -214,32 +216,50 @@
                         </div>
                         <div class="bg-black/50 border border-white/10 rounded-xl p-3 flex flex-col justify-center">
                             <span class="text-coco-accent font-bold">RULES STATUS</span>
-                            <span class="text-orange-500 font-bold">2 MAIN RULES</span>
+                            <span class="text-coco-accent font-bold">2 MAIN RULES</span>
                         </div>
                     </div>
 
-                    <!-- Interactive Server Logs Simulator / Dynamic Terminal -->
-                    <div class="bg-black rounded-xl border border-white/10 p-4 font-mono text-[11px] md:text-xs text-white/90 space-y-2 select-none relative">
-                        <div class="flex items-center justify-between border-b border-coco-brown pb-2 mb-2">
-                            <span class="text-coco-accent font-bold"><i class="fa-solid fa-terminal mr-1"></i> Live Action Logs</span>
-                            <span class="text-[9px] text-white/50">realtime events</span>
+                    <div class="bg-black rounded-xl border border-white/10 p-2 font-mono text-[11px] md:text-xs text-white/90 space-y-2 select-none relative overflow-hidden">
+                        <div class="flex items-center justify-between border-b border-coco-brown pb-2 mb-2 px-1">
+                            <span class="text-coco-accent font-bold"><i class="fa-brands fa-discord mr-1"></i> Live Action Logs</span>
+                            <span class="text-[9px] text-green-400 animate-pulse">● proxy active</span>
                         </div>
-                        <div class="h-44 overflow-y-auto space-y-1 scrollbar-thin" id="terminal-logs">
-                            <p class="text-white/50">[20:45:10] [CoconutSMP]: System status initialized.</p>
-                            <p class="text-coco-accent">[20:45:15] [System]: Crossplay tunnels loaded securely on port 33466</p>
-                            <p class="text-red-500">[System] Player banned for violation of Rule 1 (No Hacking).</p>
-                            <p class="text-white/80">[Chat] AnarchyGamer: "Be careful not to spawn kill, staff is watching!"</p>
-                            <p class="text-coco-accent">[System] ProCat help desk active: procat.help@gmail.com</p>
-                        </div>
-                        <div class="flex gap-2 mt-2 pt-2 border-t border-coco-brown">
-                            <input type="text" id="terminal-input" placeholder="Type 'help', 'email', or 'clear'..." class="bg-coco-dark border border-white/15 rounded px-2 py-1 w-full text-white text-xs focus:outline-none focus:border-coco-accent font-mono" />
-                            <button onclick="submitTerminalCommand()" class="bg-coco-accent text-white font-bold px-3 py-1 rounded text-xs hover:bg-orange-500 transition-colors">Run</button>
-                        </div>
+                        <widgetbot
+                            server="1475694206461677632"
+                            channel="1475694207783145637"
+                            class="w-full h-80 rounded-lg block bg-[#2f3136]"
+                            style="border: none;"
+                        ></widgetbot>
                     </div>
                 </div>
             </div>
         </div>
     </header>
+
+    <!-- REALTIME STATUS PANEL -->
+    <section id="status-panel" class="py-12 px-6 max-w-7xl mx-auto">
+        <div class="glass-panel rounded-2xl p-6 md:p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+            <div class="space-y-1 border-r border-white/10 last:border-0">
+                <span class="text-xs uppercase tracking-wider text-gray-400 font-mono">Server Status</span>
+                <div class="text-lg md:text-2xl font-bold text-green-400 flex items-center justify-center gap-2">
+                    <span class="w-3 h-3 rounded-full bg-green-500 animate-pulse"></span> ONLINE
+                </div>
+            </div>
+            <div class="space-y-1 border-r border-white/10 last:border-0">
+                <span class="text-xs uppercase tracking-wider text-gray-400 font-mono">Online Players</span>
+                <div class="text-lg md:text-2xl font-extrabold text-white" id="live-player-count">48 / 150</div>
+            </div>
+            <div class="space-y-1 border-r border-white/10 last:border-0">
+                <span class="text-xs uppercase tracking-wider text-gray-400 font-mono">Performance (TPS)</span>
+                <div class="text-lg md:text-2xl font-mono font-bold text-coco-accent">19.95 <span class="text-xs text-gray-500">TPS</span></div>
+            </div>
+            <div class="space-y-1 last:border-0">
+                <span class="text-xs uppercase tracking-wider text-gray-400 font-mono">Compatible Versions</span>
+                <div class="text-sm md:text-base font-bold text-white">Java 1.20.x - 1.21.x</div>
+            </div>
+        </div>
+    </section>
 
     <!-- ABOUT & FEATURES SECTION -->
     <section id="about" class="py-20 px-6 max-w-7xl mx-auto border-t border-white/10 relative">
@@ -276,7 +296,7 @@
 
             <!-- Feature 3 -->
             <div class="glass-panel rounded-2xl p-8 relative overflow-hidden group transition-all duration-300 hover:-translate-y-2">
-                <div class="w-12 h-12 rounded-xl bg-orange-600/10 border border-orange-500/30 flex items-center justify-center text-coco-accent text-xl mb-6 group-hover:bg-orange-600 group-hover:text-white transition-all duration-300">
+                <div class="w-12 h-12 rounded-xl bg-orange-500/10 border border-coco-accent/30 flex items-center justify-center text-coco-accent text-xl mb-6 group-hover:bg-coco-accent group-hover:text-white transition-all duration-300">
                     <i class="fa-solid fa-headset"></i>
                 </div>
                 <h3 class="text-xl font-bold text-white mb-3">W-Support Setup</h3>
@@ -331,7 +351,7 @@
     </section>
 
     <!-- ANARCHY GRAFFITI WALL SECTION -->
-    <section id="wall" class="py-20 bg-coco-dark/50 px-6">
+    <section id="wall" class="py-20 bg-coco-dark/50 px-6 animate-fade-in">
         <div class="max-w-6xl mx-auto">
             <div class="text-center space-y-4 mb-12">
                 <h2 class="text-3xl md:text-5xl font-extrabold text-white">THE <span class="text-coco-accent">ANARCHY GRAFFITI</span> WALL</h2>
@@ -371,9 +391,11 @@
                 <!-- Live Wall Board display -->
                 <div class="lg:col-span-3">
                     <div class="bg-black border border-white/10 rounded-2xl p-6 min-h-[300px] shadow-inner">
-                        <div class="flex items-center justify-between border-b border-coco-brown pb-4 mb-6">
+                        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-coco-brown pb-4 mb-6 gap-3">
                             <span class="font-gaming text-xs text-gray-400"><i class="fa-solid fa-database mr-1"></i> WALL ENGRAVINGS</span>
-                            <button onclick="clearMyGraffiti()" class="text-xs text-red-500 hover:text-red-400 underline">Clear my posts</button>
+                            <div class="flex items-center gap-4">
+                                <button onclick="clearMyGraffiti()" class="text-xs text-red-500 hover:text-red-400 underline transition-colors">Clear my posts</button>
+                            </div>
                         </div>
                         <div id="graffiti-wall-container" class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <!-- Injected dynamically -->
@@ -384,13 +406,12 @@
         </div>
     </section>
 
-
     <!-- CTA TO DISCORD -->
     <section class="py-24 px-6 relative overflow-hidden bg-gradient-to-b from-black to-coco-dark border-t border-white/10">
         <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,102,0,0.08),transparent_60%)] pointer-events-none"></div>
         <div class="max-w-4xl mx-auto text-center space-y-8 relative z-10">
-            <!-- Animated Custom Brand Icon over the CTA using coconut.png -->
-            <img src="coconut.png" alt="CoconutSMP Icon" class="w-16 h-16 mx-auto animate-bounce object-contain rounded-xl shadow-lg border-2 border-coco-accent/50 bg-black/50" onerror="this.onerror=null; this.src='https://img.icons8.com/emoji/48/coconut.png';">
+            <!-- Animated Custom Brand Icon over CTA with a Bright White Background and Dark Orange Glow -->
+            <img src="coconut.png" alt="CoconutSMP Icon" class="w-16 h-16 mx-auto p-1 animate-bounce object-contain rounded-2xl shadow-[0_0_20px_rgba(255,102,0,0.8)] border-2 border-white bg-white" onerror="this.onerror=null; this.src='https://img.icons8.com/emoji/48/coconut.png';">
             <h2 class="text-4xl md:text-6xl font-extrabold text-white">READY TO JOIN THE <span class="text-coco-accent">ANARCHY</span>?</h2>
             <p class="text-gray-300 text-base md:text-lg max-w-xl mx-auto leading-relaxed">
                 Coordinate clans, claim bounties, share dynamic coordinate maps, and communicate directly with staff. Our active discord is available 24/7.
@@ -411,8 +432,8 @@
     <footer class="bg-black border-t border-white/10 py-12 px-6">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
             <div class="flex items-center space-x-3">
-                <!-- Customized Logo Image inside Footer using coconut.png -->
-                <img src="coconut.png" alt="CoconutSMP Logo" class="w-8 h-8 object-contain rounded-md border border-white/20" onerror="this.onerror=null; this.src='https://img.icons8.com/emoji/48/coconut.png';">
+                <!-- Customized Logo Image inside Footer with a Bright White Background -->
+                <img src="coconut.png" alt="CoconutSMP Logo" class="w-8 h-8 p-0.5 object-contain rounded-md border border-white bg-white shadow-[0_0_10px_rgba(255,255,255,0.4)]" onerror="this.onerror=null; this.src='https://img.icons8.com/emoji/48/coconut.png';">
                 <span class="font-gaming text-xs text-coco-accent tracking-widest">COCONUTSMP</span>
             </div>
             <p class="text-xs text-gray-500 text-center md:text-right">
@@ -494,180 +515,143 @@
         }
 
         // -------------------------------------------------------------
-        // Interactive Server Logs Console Simulator
+        // Simulating Live Player Counters
         // -------------------------------------------------------------
-        const terminalInput = document.getElementById('terminal-input');
-        const terminalLogs = document.getElementById('terminal-logs');
-
-        function appendLog(text, colorClass = 'text-white/80') {
-            const logElement = document.createElement('p');
-            logElement.className = colorClass;
-            const time = new Date().toLocaleTimeString('en-US', { hour12: false });
-            logElement.innerHTML = `<span class="text-white/40">[${time}]</span> ${text}`;
-            terminalLogs.appendChild(logElement);
-            terminalLogs.scrollTop = terminalLogs.scrollHeight;
+        function runLivePlayersSimulation() {
+            const counter = document.getElementById('live-player-count');
+            let baseCount = 48;
+            setInterval(() => {
+                const offset = Math.floor(Math.random() * 5) - 2; // -2 to +2
+                baseCount = Math.max(12, Math.min(145, baseCount + offset));
+                counter.textContent = `${baseCount} / 150`;
+            }, 7000);
         }
 
-        function submitTerminalCommand() {
-            const cmd = terminalInput.value.trim().toLowerCase();
-            if (!cmd) return;
+        // -------------------------------------------------------------
+        // Anarchy Graffiti Wall Local Storage & Dynamic Simulation
+        // -------------------------------------------------------------
+        let wallPosts = [];
 
-            appendLog(`> ${cmd}`, 'text-coco-accent font-bold');
-            terminalInput.value = '';
-
-            setTimeout(() => {
-                switch(cmd) {
-                    case 'help':
-                        appendLog('Commands: connect, email, discord, rules, clear', 'text-orange-400');
-                        break;
-                    case 'connect':
-                        appendLog('IP: play.coconutsmp.qzz.io | Bedrock Port: 33466 | Java Port: Default', 'text-white font-bold');
-                        break;
-                    case 'email':
-                        appendLog('Direct support desk: procat.help@gmail.com', 'text-orange-300');
-                        break;
-                    case 'rules':
-                        appendLog('1. No Hacking (No hacked clients or duplicate cheats)', 'text-white/90');
-                        appendLog('2. No Spawn Killing (Leave beginners space to escape)', 'text-white/90');
-                        break;
-                    case 'discord':
-                        appendLog('Anarchy invite: https://discord.gg/KpAnJgxYqB', 'text-blue-400 font-bold');
-                        break;
-                    case 'clear':
-                        terminalLogs.innerHTML = '';
-                        appendLog('Console cleared. Enter "help" for a list of diagnostics.', 'text-white/40');
-                        break;
-                    default:
-                        appendLog(`Error: "${cmd}" unrecognized. Type "help".`, 'text-red-500');
-                }
-            }, 250);
-        }
-
-        // Allow pressing Enter in console
-        terminalInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter') {
-                submitTerminalCommand();
-            }
-        });
-
-        // Simulating background events
-        const mockEvents = [
-            { text: "[Combat] Player survived a raid near coordinates X:2400 Z:-100", color: "text-white/80" },
-            { text: "[System] Remember: Using hacks or modded clients will lead to a permanent HWID ban.", color: "text-red-500 font-bold" },
-            { text: "[System] ProCat support active: procat.help@gmail.com", color: "text-white/60" },
-            { text: "[Clan] CLAN 'ORANGE' joined forces with CLAN 'WHITE'.", color: "text-coco-accent font-bold" },
-            { text: "[Server] Spawn-killing monitor is active. Play nice at spawn!", color: "text-orange-400" },
+        // Dynamic default presets to pre-fill if localstorage is empty
+        const defaultGraffiti = [
+            { id: 101, name: "GriefLord_69", color: "accent", message: "Raid coordinate leak: X: 15400, Z: -2240. Double chest is unlocked!", time: "05/18/2026, 12:44:11 PM" },
+            { id: 102, name: "SaltyAlchemist", color: "light", message: "Selling God Apples at spawn. Hit me up in chat if you have raw netherite bricks.", time: "05/18/2026, 03:20:05 PM" },
+            { id: 103, name: "TheSpectre", color: "gray", message: "Rule 1 is real. I watched someone get hammered immediately for trying flyhacks. W Staff.", time: "05/19/2026, 09:11:42 AM" },
+            { id: 104, name: "LlamaGod", color: "accent", message: "Clan Hydra is actively recruiting. Search for the big spruce tree biome.", time: "05/19/2026, 01:05:00 PM" }
         ];
 
-        setInterval(() => {
-            const roll = Math.floor(Math.random() * mockEvents.length);
-            appendLog(mockEvents[roll].text, mockEvents[roll].color);
-        }, 12000);
-
-        // -------------------------------------------------------------
-        // Anarchy Graffiti Wall Logic (localStorage persistent)
-        // -------------------------------------------------------------
-        let wallData = [];
-
-        function initWall() {
-            const defaultPosts = [
-                { id: 1, name: "GriefLord", msg: "Respect the rules! Modded client user reported and banned at coordinates X:-142,000 Z:92,000.", color: "accent", date: "5 mins ago" },
-                { id: 2, name: "CatSmasher", msg: "Establishing an alliance near coordinates 20k, 20k. Sign with procat.help@gmail.com if interested.", color: "light", date: "3 hours ago" },
-                { id: 3, name: "WitherPro", msg: "Spawn-kill free zone constructed. Standard survival rules are strictly monitored.", color: "gray", date: "Yesterday" }
-            ];
-
-            const stored = localStorage.getItem('coconut_graffiti');
+        function loadGraffitiWall() {
+            const stored = localStorage.getItem('coconutsmp_graffiti');
             if (stored) {
-                wallData = JSON.parse(stored);
+                wallPosts = JSON.parse(stored);
             } else {
-                wallData = defaultPosts;
-                localStorage.setItem('coconut_graffiti', JSON.stringify(wallData));
+                wallPosts = [...defaultGraffiti];
+                localStorage.setItem('coconutsmp_graffiti', JSON.stringify(wallPosts));
             }
-            renderWall();
+            renderGraffitiWall();
         }
 
-        function renderWall() {
+        function renderGraffitiWall() {
             const container = document.getElementById('graffiti-wall-container');
             container.innerHTML = '';
 
-            if (wallData.length === 0) {
+            if (wallPosts.length === 0) {
                 container.innerHTML = `
-                    <div class="col-span-2 text-center py-12 text-white/40 space-y-2">
-                        <p class="text-lg">🔇 The Wall is completely clean.</p>
-                        <p class="text-xs">Claim the first engraving spot on the server scroll!</p>
+                    <div class="col-span-1 md:col-span-2 flex flex-col items-center justify-center p-12 text-center text-gray-500 font-mono">
+                        <i class="fa-solid fa-ghost text-4xl mb-3 text-coco-accent"></i>
+                        <p>The wall lies cold and silent. Be the first to engrave your legacy!</p>
                     </div>
                 `;
                 return;
             }
 
-            wallData.forEach(post => {
-                let borderTheme = "border-coco-accent/30 bg-coco-accent/5";
-                let badgeClass = "text-coco-accent bg-coco-accent/10";
+            // Render matching posts (Newest first)
+            const sorted = [...wallPosts].reverse();
+            sorted.forEach(post => {
+                const card = document.createElement('div');
                 
+                // Set theme borders and text colors based on choice
+                let borderClass = 'border-coco-accent/30 bg-coco-dark/60';
+                let textClass = 'text-coco-accent';
                 if (post.color === 'light') {
-                    borderTheme = "border-white/30 bg-white/5";
-                    badgeClass = "text-white bg-white/10";
+                    borderClass = 'border-white/20 bg-white/5';
+                    textClass = 'text-white font-semibold';
                 } else if (post.color === 'gray') {
-                    borderTheme = "border-gray-500/30 bg-gray-500/5";
-                    badgeClass = "text-gray-400 bg-gray-500/10";
+                    borderClass = 'border-gray-700 bg-neutral-900/60';
+                    textClass = 'text-gray-400';
                 }
 
-                const postCard = document.createElement('div');
-                postCard.className = `p-5 rounded-2xl border ${borderTheme} flex flex-col justify-between space-y-4 shadow-sm relative overflow-hidden group hover:scale-[1.01] transition-transform`;
-                postCard.innerHTML = `
-                    <div class="space-y-2">
-                        <div class="flex items-center justify-between">
-                            <span class="text-xs font-gaming font-bold tracking-wide text-white flex items-center gap-1.5">
-                                <span class="w-1.5 h-1.5 rounded-full bg-current ${badgeClass}"></span>
-                                ${post.name || 'Anonymous'}
-                            </span>
-                            <span class="text-[10px] text-white/40">${post.date}</span>
+                card.className = `p-5 rounded-xl border ${borderClass} relative flex flex-col justify-between transition-all duration-300 hover:scale-[1.01] hover:shadow-[0_4px_20px_rgba(255,102,0,0.15)]`;
+                card.innerHTML = `
+                    <div>
+                        <div class="flex justify-between items-center mb-2">
+                            <span class="font-gaming text-[10px] sm:text-xs tracking-wider ${textClass}"><i class="fa-solid fa-user-ninja mr-1"></i> ${escapeHTML(post.name)}</span>
+                            <span class="text-[9px] font-mono text-gray-500">${post.time}</span>
                         </div>
-                        <p class="text-sm text-white/90 leading-relaxed font-mono">${post.msg}</p>
+                        <p class="text-xs md:text-sm text-gray-300 font-mono italic whitespace-pre-wrap break-all">${escapeHTML(post.message)}</p>
                     </div>
                 `;
-                container.appendChild(postCard);
+                container.appendChild(card);
             });
         }
 
-        // Form post handler
         function postToWall() {
             const nameInput = document.getElementById('graffiti-name');
             const msgInput = document.getElementById('graffiti-msg');
-            const colorInput = document.getElementById('graffiti-color');
+            const colorSelect = document.getElementById('graffiti-color');
 
-            const msg = msgInput.value.trim();
-            if (!msg) {
-                showToast("⚠️ Submission Failed", "The declaration message cannot be empty!");
+            const name = nameInput.value.trim() || "Anonymous";
+            const message = msgInput.value.trim();
+            const color = colorSelect.value;
+
+            if (!message) {
+                showToast('⚠️ Transmission Failed!', 'Please enter a message to engrave on the wall.');
                 return;
             }
 
             const newPost = {
                 id: Date.now(),
-                name: nameInput.value.trim() || 'Anonymous',
-                msg: msg,
-                color: colorInput.value,
-                date: "Just Now"
+                name: name,
+                color: color,
+                message: message,
+                time: new Date().toLocaleString()
             };
 
-            wallData.unshift(newPost);
-            localStorage.setItem('coconut_graffiti', JSON.stringify(wallData));
+            wallPosts.push(newPost);
+            localStorage.setItem('coconutsmp_graffiti', JSON.stringify(wallPosts));
             
-            // Clear inputs & update UI
+            // Clear inputs
             msgInput.value = '';
-            renderWall();
-            showToast("🥥 Post Engraved!", "Your anonymous message has been permanently pinned.");
+            
+            // Re-render
+            renderGraffitiWall();
+            showToast('🔥 Wall Engraved!', 'Your declaration is saved permanently.');
         }
 
         function clearMyGraffiti() {
-            wallData = [];
-            localStorage.setItem('coconut_graffiti', JSON.stringify([]));
-            renderWall();
-            showToast("♻️ Wall Reset", "All local server entries cleared from your cache.");
+            // Filter out default posts, clear everything else or prompt custom clear
+            wallPosts = [];
+            localStorage.setItem('coconutsmp_graffiti', JSON.stringify(wallPosts));
+            renderGraffitiWall();
+            showToast('🗑️ Storage Cleared', 'Your graffiti entries have been scrubbed from local memory.');
         }
 
-        // Initialize wall on launch
-        initWall();
+        function escapeHTML(str) {
+            return str.replace(/[&<>'"]/g, 
+                tag => ({
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    "'": '&#39;',
+                    '"': '&quot;'
+                }[tag] || tag)
+            );
+        }
+
+        window.onload = function() {
+            runLivePlayersSimulation();
+            loadGraffitiWall();
+        }
     </script>
 </body>
 </html>
