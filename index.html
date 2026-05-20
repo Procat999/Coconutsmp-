@@ -14,7 +14,7 @@
     <!-- Google Fonts: Inter & Press Start 2P for gaming feel -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght=300;400;500;600;700;800&family=Press+Start+2P&display=swap" rel="stylesheet">
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -119,6 +119,7 @@
             <a href="#about" class="hover:text-coco-accent transition-colors duration-200 flex items-center gap-1"><i class="fa-solid fa-compass text-white"></i> About</a>
             <a href="#status-panel" class="hover:text-coco-accent transition-colors duration-200 flex items-center gap-1"><i class="fa-solid fa-server text-coco-accent"></i> Status</a>
             <a href="#rules" class="hover:text-coco-accent transition-colors duration-200 flex items-center gap-1"><i class="fa-solid fa-gavel text-coco-accent"></i> Rules</a>
+            <a href="#maps" class="hover:text-coco-accent transition-colors duration-200 flex items-center gap-1"><i class="fa-solid fa-map-location-dot text-coco-accent"></i> World Maps</a>
             <a href="#wall" class="hover:text-coco-accent transition-colors duration-200 flex items-center gap-1"><i class="fa-solid fa-pen-nib"></i> Anarchy Wall</a>
         </div>
 
@@ -140,6 +141,7 @@
         <a href="#about" class="text-lg hover:text-coco-accent font-medium flex items-center gap-3 py-2 border-b border-coco-brown/20"><i class="fa-solid fa-compass text-white"></i> About</a>
         <a href="#status-panel" class="text-lg hover:text-coco-accent font-medium flex items-center gap-3 py-2 border-b border-coco-brown/20"><i class="fa-solid fa-server text-coco-accent"></i> Status</a>
         <a href="#rules" class="text-lg hover:text-coco-accent font-medium flex items-center gap-3 py-2 border-b border-coco-brown/20"><i class="fa-solid fa-gavel text-coco-accent"></i> Rules</a>
+        <a href="#maps" class="text-lg hover:text-coco-accent font-medium flex items-center gap-3 py-2 border-b border-coco-brown/20"><i class="fa-solid fa-map-location-dot text-coco-accent"></i> World Maps</a>
         <a href="#wall" class="text-lg hover:text-coco-accent font-medium flex items-center gap-3 py-2"><i class="fa-solid fa-pen-nib"></i> Anarchy Wall</a>
     </div>
 
@@ -193,7 +195,7 @@
             </div>
         </div>
 
-        <!-- Terminal Console Container -->
+        <!-- Terminal Console Container / WidgetBot Frame -->
         <div class="w-full lg:w-1/2 max-w-lg">
             <div class="glass-panel rounded-3xl p-6 relative overflow-hidden border border-coco-accent/20 shadow-2xl">
                 <!-- Scanline retro overlay -->
@@ -350,6 +352,98 @@
         </div>
     </section>
 
+    <!-- WORLD MAPS EMBED SECTION -->
+    <section id="maps" class="py-20 px-6 max-w-7xl mx-auto border-b border-white/10">
+        <div class="text-center space-y-4 mb-16">
+            <span class="text-xs bg-coco-accent/15 border border-coco-accent/30 text-coco-accent px-3 py-1 rounded-full uppercase font-bold tracking-widest font-gaming">SATELLITE SURVEILLANCE</span>
+            <h2 class="text-3xl md:text-5xl font-extrabold text-white">WORLD <span class="text-coco-accent">NAVIGATION</span> PANELS</h2>
+            <p class="text-gray-300 max-w-2xl mx-auto text-sm md:text-base">
+                Track wilderness progress, pinpoint base locations, or plan expansion territories. Switch views between our high-definition Custom Map and topological Unmined Renderer.
+            </p>
+        </div>
+
+        <!-- Stacked Map Displays with Custom frames -->
+        <div class="space-y-12">
+            
+            <!-- Map 1: Custom Map Viewer -->
+            <div class="glass-panel rounded-3xl p-4 md:p-6 border border-coco-accent/30 shadow-2xl relative overflow-hidden">
+                <!-- Interface Header Control Bar -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-4 border-b border-white/10 gap-3">
+                    <div class="flex items-center space-x-3">
+                        <span class="relative flex h-3 w-3">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
+                        </span>
+                        <div>
+                            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                                Custom Map Viewer
+                            </h3>
+                            <p class="text-xs text-gray-400 font-mono">custommapviewer.coconutsmp.qzz.io</p>
+                        </div>
+                    </div>
+                    <!-- Action tools -->
+                    <div class="flex items-center gap-3">
+                        <button onclick="refreshMap('custom-iframe')" class="bg-white/5 hover:bg-white/10 text-white border border-white/10 px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all">
+                            <i class="fa-solid fa-rotate-right"></i> Refresh
+                        </button>
+                        <a href="http://custommapviewer.coconutsmp.qzz.io" target="_blank" class="bg-coco-accent hover:bg-orange-500 text-white px-4 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider flex items-center gap-1.5 transition-all shadow-md">
+                            Full Screen <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Web Embed Frame wrapper -->
+                <div class="w-full h-[500px] md:h-[600px] bg-black/60 rounded-2xl relative border border-white/5 overflow-hidden">
+                    <!-- Loading state underneath iframe -->
+                    <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none text-center p-4">
+                        <i class="fa-solid fa-circle-notch animate-spin text-4xl text-coco-accent mb-3"></i>
+                        <span class="text-xs font-gaming text-gray-500 uppercase tracking-widest">Booting 3D Render Systems...</span>
+                    </div>
+                    <iframe id="custom-iframe" src="http://custommapviewer.coconutsmp.qzz.io" class="w-full h-full relative z-10 border-0 rounded-2xl bg-transparent" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+
+            <!-- Map 2: Unmined Viewer -->
+            <div class="glass-panel rounded-3xl p-4 md:p-6 border border-white/10 shadow-2xl relative overflow-hidden">
+                <!-- Interface Header Control Bar -->
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between pb-4 mb-4 border-b border-white/10 gap-3">
+                    <div class="flex items-center space-x-3">
+                        <span class="relative flex h-3 w-3">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-coco-accent"></span>
+                        </span>
+                        <div>
+                            <h3 class="text-lg font-bold text-white flex items-center gap-2">
+                                Unmined Viewer
+                            </h3>
+                            <p class="text-xs text-gray-400 font-mono">unminedmapviwer.coconutsmp.qzz.io</p>
+                        </div>
+                    </div>
+                    <!-- Action tools -->
+                    <div class="flex items-center gap-3">
+                        <button onclick="refreshMap('unmined-iframe')" class="bg-white/5 hover:bg-white/10 text-white border border-white/10 px-3 py-1.5 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all">
+                            <i class="fa-solid fa-rotate-right"></i> Refresh
+                        </button>
+                        <a href="http://unminedmapviwer.coconutsmp.qzz.io" target="_blank" class="bg-coco-accent hover:bg-orange-500 text-white px-4 py-1.5 rounded-lg text-xs font-black uppercase tracking-wider flex items-center gap-1.5 transition-all shadow-md">
+                            Full Screen <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Web Embed Frame wrapper -->
+                <div class="w-full h-[500px] md:h-[600px] bg-black/60 rounded-2xl relative border border-white/5 overflow-hidden">
+                    <!-- Loading state underneath iframe -->
+                    <div class="absolute inset-0 flex flex-col items-center justify-center pointer-events-none text-center p-4">
+                        <i class="fa-solid fa-circle-notch animate-spin text-4xl text-coco-accent mb-3"></i>
+                        <span class="text-xs font-gaming text-gray-500 uppercase tracking-widest">Opening Topological Core...</span>
+                    </div>
+                    <iframe id="unmined-iframe" src="http://unminedmapviwer.coconutsmp.qzz.io" class="w-full h-full relative z-10 border-0 rounded-2xl bg-transparent" allowfullscreen loading="lazy"></iframe>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
     <!-- ANARCHY GRAFFITI WALL SECTION -->
     <section id="wall" class="py-20 bg-coco-dark/50 px-6 animate-fade-in">
         <div class="max-w-6xl mx-auto">
@@ -469,6 +563,23 @@
                 mobileMenu.classList.add('translate-x-full');
             });
         });
+
+        // -------------------------------------------------------------
+        // Map Embedded Control Panel Features
+        // -------------------------------------------------------------
+        function refreshMap(iframeId) {
+            const mapFrame = document.getElementById(iframeId);
+            if (mapFrame) {
+                // Save current source URL
+                const currentSrc = mapFrame.src;
+                // Force reload frame with standard source pointer
+                mapFrame.src = '';
+                setTimeout(() => {
+                    mapFrame.src = currentSrc;
+                }, 100);
+                showToast('🔄 Map Reloading...', 'Refreshing viewer connection feed.');
+            }
+        }
 
         // -------------------------------------------------------------
         // Copy IP Address Functionality
